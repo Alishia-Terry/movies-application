@@ -18,7 +18,7 @@ $('#submit-button').click(function (e) {
     let movie = {
         title: title,
         rating: rating
-    }
+    };
     console.log(movie);
     fetch('/api/movies', {
         headers: {"content-type": "application/json"},
@@ -29,19 +29,29 @@ $('#submit-button').click(function (e) {
     }).then(movies => {
         console.log(movies)
     });
+
+    $('#delete-btn').click(function (e) {
+        e.preventDefault()
+            .then()
+
+
+    });
 });
+
+
 
 
 getMovies().then(movies => {
 
     let table =
         // "<h2>Movie Catalog</h2>" +
-        "<table>"+
+        "<table class='tbl-heading'>"+
           "<thead>" +
               "<tr>" +
-                  "<th width='200' height='10' class='title-head'>Title</th>" +
-                  "<th width='100' height='10' class='id-head'>ID</th>" +
-                  "<th width='100' height='10' class='rating-head'>Rating</th>" +
+                  "<th width='200' class='title-head'>Title</th>" +
+                  "<th width='200' class='id-head'>ID</th>" +
+                  "<th width='200' class='rating-head'>Rating</th>" +
+                  "<th width='57' class='delete'>Delete</th>" +
               "</tr>" +
           "</thead>"+
         "</table>";
@@ -57,8 +67,9 @@ getMovies().then(movies => {
             <tbody>
                 <tr>
                     <td width="200" class="title-block">${title}</td>
-                    <td width="100">${id}</td>
-                    <td width="100">${rating}</td>
+                    <td width="200">${id}</td>
+                    <td width="200">${rating}</td>
+                    <td><button class="delete-btn" type="submit">Delete</button></td>
                 </tr>
             </tbody>
           </table>`;
