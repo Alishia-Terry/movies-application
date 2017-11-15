@@ -24,6 +24,36 @@
       "title": "Top Gun",
       "rating": "5",
       "id": 5
+    },
+    {
+      "title": "Star Trek",
+      "rating": "2",
+      "id": 6
+    },
+    {
+      "title": "Blind Side",
+      "rating": "4",
+      "id": 7
+    },
+    {
+      "title": "Color Purple",
+      "rating": "5",
+      "id": 8
+    },
+    {
+      "title": "Biodome",
+      "rating": "3",
+      "id": 9
+    },
+    {
+      "title": "Dark Tower",
+      "rating": "2",
+      "id": 10
+    },
+    {
+      "title": "Fast and the Furious",
+      "rating": "3",
+      "id": 11
     }
   ]
 }
