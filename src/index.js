@@ -62,38 +62,37 @@ getMovies().then(movies => {
                     <td width="200" class="title-block">${title}</td>
                     <td width="200">${id}</td>
                     <td width="200">${rating}</td>
-                    <td><button id="delete-btn" type="submit">Delete</button></td>
+                    <td><button class="delete-btn" >Delete</button></td>
                 </tr>
             </tbody>
           </table>`;
     });
 
-
     $(".bodyHTML").html(table);
 
-  console.log('Here are all the movies:');
-  console.log(movies);
+    $('.delete-btn').click(function (e) {
+        e.preventDefault();
+        console.log("clicked");
+         fetch(`/api/movies`, {
+             headers: {"content-type": "application/json"},
+             method: "DELETE"
+         }).then(() => {
+             getMovies().then((movies) => {
+            console.log(movies);
+             });
+        });
+    });
 
-  movies.forEach(({title, rating, id}) => {
+    console.log('Here are all the movies:');
+    console.log(movies);
 
+    movies.forEach(({title, rating, id}) => {
       console.log(`${id} ${title} ${rating}`);
-  });
+    });
+
 }).catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
-
-
-    $('#delete-btn').click(function (e) {
-        e.preventDefault();
-        console.log("clicked");
-        fetch(`/api/movies`, {
-            headers: {"content-type": "application/json"},
-            method: "DELETE"
-        }).then(() => {
-            getMovies().then((movies) => {
-                console.log(movies);
-            });
-        });
-    });
 });
+
 
